@@ -1,61 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style1.css" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
-    </style>
-    <title>Leo Electricals and Automations</title>
-  </head>
-  <body>
-    <nav class="navbar">
-      <ul class="nav-list">
-        <div class="logo"><img src="data/logo.jpeg" alt="logo" /></div>
-        <li><a href="#Home">Home</a></li>
-        <li><a href="#About">About</a></li>
-        <li><a href="#Contact Us">Contact Us</a></li>
-        <li><a href="#Resources">Resources</a></li>
-        <li><a href="#Products & Solutions">Products & Solutions</a></li>
-      </ul>
-      <div class="rightnav">
-        <input type="text" name="Search" id="search" />
-        <button class="btn-sm">Search</button>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style1.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+  </style>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+  </style>
+  <title>Leo Electricals and Automations</title>
+</head>
+
+<body>
+  <nav class="navbar">
+    <ul class="nav-list">
+      <div class="logo"><img src="data/logo.jpeg" alt="logo" /></div>
+      <li><a href="#Home">Home</a></li>
+      <li><a href="#About">About</a></li>
+      <li><a href="#Contact Us">Contact Us</a></li>
+      <li><a href="#Resources">Resources</a></li>
+      <li><a href="#Products & Solutions">Products & Solutions</a></li>
+    </ul>
+    <div class="rightnav">
+      <input type="text" name="Search" id="search" />
+      <button class="btn-sm">Search</button>
+    </div>
+  </nav>
+  <section class="firsthalf">
+    <!-- Swiper -->
+    <div class="swiper-container mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide slide1">
+          <img src="data/building-contracting.jpg" alt="logo" />
+        </div>
+        <div class="swiper-slide slide2">
+          <img src="data/finance-banner.png" alt="logo" />
+        </div>
+        <div class="swiper-slide slide3">
+          <img src="data/boom.jpg" alt="automatic boom barrier" />
+        </div>
+        <div class="swiper-slide slide4">
+          <img src="data/customer.jpg" alt="customer satisfaction" />
+        </div>
       </div>
-    </nav>
-    <section class="firsthalf">
-      <div class="centerpic">
-        <img
-          src="https://source.unsplash.com/user/erondu/1535x500"
-          alt="automation"
-        />
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+  <section class="secondhalf">
+    <div class="firsttext">
+      <h1>LEO ELECTRICALS AND AUTOMATIONS</h1>
+    </div>
+    <div class="subtext">
+      <p>
+        Speedgatz is a specialized company engaged in providing the most
+        comprehensive product range of Vehicular access, Pedestrian access and
+        Parking solutions to residential, commercial & industrial users.
+      </p>
+    </div>
+    <div class="subsubtext">
+      <p>
+        The company is dedicated to ensure the safety of people whether they
+        are at home, around the home or outside the home. The skill,
+        technology and international expertise of Speedgatz allows it to offer
+        an unrivalled quality of products and services to its customers across
+        the globe.
+      </p>
+
+      <div class="enquirybutton">
+        <button class="btn-la">Find Out More</button>
       </div>
-      <div class="centertext">
-        <h1>Energy Efficiency</h1>
+  </section>
+  <section>
+    <div class="rangetext">
+      <h1>Our Products</h1>
+    </div>
+  </section>
+  <section class="thirdhalf">
+    <div class="container d-flex justify-content-center firstproduct">
+      <figure class="card card-product-grid card-lg"> <a href="#" class="img-wrap" data-abc="true"> <img
+            src="data/controlpanel.jpg"> </a>
+        <figcaption class="info-wrap">
+          <div class="row">
+            <div class="col-md-9 col-xs-9"> <a href="#" class="title" data-abc="true">Power Factor Correction</a></div>
+          </div>
+        </figcaption>
+        <div class="bottom-wrap"> <a href="#" class="btn btn-primary float-right" data-abc="true"> Learn More </a>
+        </div>
+      </figure>
+      <div class="container d-flex justify-content-center">
+
+        <figure class="card card-product-grid card-lg"> <a href="#" class="img-wrap" data-abc="true"> <img
+              src="data/gadget.jpg"> </a>
+          <figcaption class="info-wrap">
+            <div class="row">
+              <div class="col-md-9 col-xs-9"> <a href="#" class="title" data-abc="true">Plugin & Sockets</a></div>
+            </div>
+          </figcaption>
+          <div class="bottom-wrap"> <a href="#" class="btn btn-primary float-right" data-abc="true"> Learn More </a>
+          </div>
+        </figure>
       </div>
-      <div class="centersubtext">
-        <h3>Our main aim</h3>
+    </div>
+    <div class="container d-flex justify-content-center">
+      <figure class="card card-product-grid card-lg"> <a href="#" class="img-wrap" data-abc="true"> <img
+            src="data/powerquality.jpg"> </a>
+        <figcaption class="info-wrap">
+          <div class="row">
+            <div class="col-md-9 col-xs-9"> <a href="#" class="title" data-abc="true">Power Quality Products</a></div>
+          </div>
+        </figcaption>
+        <div class="bottom-wrap"> <a href="#" class="btn btn-primary float-right" data-abc="true"> Learn More </a>
+        </div>
+      </figure>
+    </div>
+    <div class="container d-flex justify-content-center">
+      <figure class="card card-product-grid card-lg"> <a href="#" class="img-wrap" data-abc="true"> <img
+            src="data/meteringsystem.png"> </a>
+        <figcaption class="info-wrap">
+          <div class="row">
+            <div class="col-md-9 col-xs-9"> <a href="#" class="title" data-abc="true">Metering Systems</a></div>
+          </div>
+        </figcaption>
+        <div class="bottom-wrap"> <a href="#" class="btn btn-primary float-right" data-abc="true"> Learn More </a>
+        </div>
+      </figure>
+    </div>
+  </section>
+  <section class="fourthhalf">
+    <div class="container d-flex justify-content-center firstproduct">
+      <figure class="card card-product-grid card-lg"> <a href="#" class="img-wrap" data-abc="true"> <img
+            src="data/controlpanel.jpg"> </a>
+        <figcaption class="info-wrap">
+          <div class="row">
+            <div class="col-md-9 col-xs-9"> <a href="#" class="title" data-abc="true">Power Factor Correction</a></div>
+          </div>
+        </figcaption>
+        <div class="bottom-wrap"> <a href="#" class="btn btn-primary float-right" data-abc="true"> Learn More </a>
+        </div>
+      </figure>
+      <div class="container d-flex justify-content-center">
+
+        <figure class="card card-product-grid card-lg"> <a href="#" class="img-wrap" data-abc="true"> <img
+              src="data/gadget.jpg"> </a>
+          <figcaption class="info-wrap">
+            <div class="row">
+              <div class="col-md-9 col-xs-9"> <a href="#" class="title" data-abc="true">Plugin & Sockets</a></div>
+            </div>
+          </figcaption>
+          <div class="bottom-wrap"> <a href="#" class="btn btn-primary float-right" data-abc="true"> Learn More </a>
+          </div>
+        </figure>
       </div>
-    </section>
-    <section class="secondhalf">
-      <div class="firsttext">
-        <h1>We are</h1>
-        <h1>LEO ELECTRICALS AND AUTOMATIONS</h1>
-      </div>
-      <div class="subtext">
-        <p>
-          Speedgatz is a specialized company engaged in providing the most
-          comprehensive product range of Vehicular access, Pedestrian access and
-          Parking solutions to residential, commercial & industrial users. The
-          company is dedicated to ensure the safety of people whether they are
-          at home, around the home or outside the home. The skill, technology
-          and international expertise of Speedgatz allows it to offer an
-          unrivalled quality of products and services to its customers across
-          the globe.
-        </p>
-      </div>
-    </section>
-  </body>
+    </div>
+    <div class="container d-flex justify-content-center">
+      <figure class="card card-product-grid card-lg"> <a href="#" class="img-wrap" data-abc="true"> <img
+            src="data/powerquality.jpg"> </a>
+        <figcaption class="info-wrap">
+          <div class="row">
+            <div class="col-md-9 col-xs-9"> <a href="#" class="title" data-abc="true">Power Quality Products</a></div>
+          </div>
+        </figcaption>
+        <div class="bottom-wrap"> <a href="#" class="btn btn-primary float-right" data-abc="true"> Learn More </a>
+        </div>
+      </figure>
+    </div>
+    <div class="container d-flex justify-content-center">
+      <figure class="card card-product-grid card-lg"> <a href="#" class="img-wrap" data-abc="true"> <img
+            src="data/meteringsystem.png"> </a>
+        <figcaption class="info-wrap">
+          <div class="row">
+            <div class="col-md-9 col-xs-9"> <a href="#" class="title" data-abc="true">Metering Systems</a></div>
+          </div>
+        </figcaption>
+        <div class="bottom-wrap"> <a href="#" class="btn btn-primary float-right" data-abc="true"> Learn More </a>
+        </div>
+      </figure>
+    </div>
+  </section>
+  <section class="fifthhalf">
+    
+  </section>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: "auto",
+      spaceBetween: 40,
+      grabCursor: true,
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+</body>
+
 </html>
