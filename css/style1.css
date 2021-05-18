@@ -22,6 +22,11 @@ body {
   justify-content: center;
   padding: 71px;
 }
+.list-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .nav-list img {
   width: 215px;
   display: flex;
@@ -31,9 +36,9 @@ body {
   margin-left: 85px;
 }
 .nav-list li {
+  white-space: nowrap;
   list-style: none;
-  margin: 57px;
-  margin-left: 72px;
+  padding: 30px;
   list-style-type: none;
 }
 .nav-list li a {
