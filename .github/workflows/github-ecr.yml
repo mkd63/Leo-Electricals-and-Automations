@@ -29,7 +29,7 @@ jobs:
           # amazon secret access key
           secret_key: /Wse+b4W+wlT8NC7ECSjHT1fDrFa24WH5cq4/bYg
           # docker registry
-          registry: http://319141142473.dkr.ecr.ap-south-1.amazonaws.com
+          registry: 319141142473.dkr.ecr.ap-south-1.amazonaws.com
           # amazon region, defaults to us-east-1
           region: ap-south-1
           # repository name for the image
