@@ -33,9 +33,9 @@ jobs:
           # amazon region, defaults to us-east-1
           region: ap-south-1
           # repository name for the image
-          repo: github-action-deploy
+          repo: leo-electricals
           # repository tag for the image, defaults to latest
-          #tags: github-deployed
+          tags: github-deployed
           # dockerfile to be used, defaults to Dockerfile
           #dockerfile: # optional, default is Dockerfile
           # do not start the docker daemon
