@@ -20,18 +20,6 @@ jobs:
       - name: Check Out Repo 
         uses: actions/checkout@v2
 
-      - name: Login to ECR
-        # You may pin to the exact commit or the version.
-        # uses: jwalton/gh-ecr-login@b5b975ecf221c54dbd84c98e84709eb016f7fdae
-        uses: jwalton/gh-ecr-login@v1.0.0
-        with:
-          # Access key for IAM User.
-          access-key-id: AKIAUUTSLL7EWTKC4ZVM
-          # Secret access key for IAM User.
-          secret-access-key: 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
-          # AWS Region to use.
-          region: ap-south-1
-
       - name: AWS ECR
         # You may pin to the exact commit or the version.
         # uses: kciter/aws-ecr-action@287991878740e91226f2177fdb85deb174fe0df3
