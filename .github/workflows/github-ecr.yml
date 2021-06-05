@@ -26,7 +26,7 @@ jobs:
         uses: hands-lab/push-ecr-action@v1.1
         with:
           # image name
-          image: leo-electricals
+          image: 319141142473.dkr.ecr.ap-south-1.amazonaws.com/leo-electricals:latest
           # AWS Access Key ID
           aws-access-key-id: AKIAUUTSLL7EWTKC4ZVM 
           # AWS Secret Access Key
