@@ -25,9 +25,9 @@ jobs:
         uses: appleboy/docker-ecr-action@v0.0.3
         with:
           # amazon access key
-          access_key: AKIAUUTSLL7EWTKC4ZVM
+          access_key: ${{ secrets.AWS_ACCESS_KEY }}
           # amazon secret access key
-          secret_key: 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
+          secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           # docker registry
           registry: 319141142473.dkr.ecr.ap-south-1.amazonaws.com
           # amazon region, defaults to us-east-1
