@@ -28,17 +28,17 @@ pipeline {
         }
         stage('Setting ECR credentials'){
             steps{
-                sh 'aws ecr get-login-password --region ap-south-1 | sudo docker login --username AWS --password-stdin 582495273871.dkr.ecr.ap-south-1.amazonaws.com'
+                sh 'aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 582495273871.dkr.ecr.ap-south-1.amazonaws.com'
             }
         }
         stage('building image and pushing to ecr'){
             steps{
                 sh """#!/bin/bash
-                    sudo docker build -t test-repo:latest .
-                    sudo docker tag test-repo:latest 582495273871.dkr.ecr.ap-south-1.amazonaws.com/test-repo:latest
-                    sudo docker push 582495273871.dkr.ecr.ap-south-1.amazonaws.com/test-repo:latest
-                    sudo docker tag test-repo:latest 582495273871.dkr.ecr.ap-south-1.amazonaws.com/test-repo:$GIT_COMMIT_SHORT
-                    sudo docker push 582495273871.dkr.ecr.ap-south-1.amazonaws.com/test-repo:$GIT_COMMIT_SHORT
+                    docker build -t test-repo:latest .
+                    docker tag test-repo:latest 582495273871.dkr.ecr.ap-south-1.amazonaws.com/test-repo:latest
+                    docker push 582495273871.dkr.ecr.ap-south-1.amazonaws.com/test-repo:latest
+                    docker tag test-repo:latest 582495273871.dkr.ecr.ap-south-1.amazonaws.com/test-repo:$GIT_COMMIT_SHORT
+                    docker push 582495273871.dkr.ecr.ap-south-1.amazonaws.com/test-repo:$GIT_COMMIT_SHORT
                 """
             }
         }  
