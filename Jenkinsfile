@@ -1,91 +1,53 @@
 #!/usr/bin/env groovy
 
 pipeline {
+    //parameters
+    parameters {
+      string defaultValue: 'master', description: '', name: 'BRANCH_NAME', trim: true
+    }
+    
     agent any
-
-    options {
-        buildDiscarder(logRotator(numToKeepStr: '10'))
-        disableConcurrentBuilds()
-        timeout(time: 1, unit: 'HOURS')
-        timestamps()
-    }
-
-    environment {
-        //POM_VERSION = getVersion()
-        //JAR_NAME = getJarName()
-        
-        VERSION = 'latest'
-        PROJECT = 'test-repo'
-        IMAGE = 'test-repo:latest'
-        ECRURL = 'http://582495273871.dkr.ecr.ap-south-1.amazonaws.com'
-        ECRCRED = 'ecr:ap-south-1:eb87d016-ca68-4b56-89af-aca41c31faaf'  
-        AWS_ECR_REGION = 'ap-south-1'
-        AWS_ECS_SERVICE = 'ch-dev-user-api-service'
-        AWS_ECS_TASK_DEFINITION = 'ch-dev-user-api-taskdefinition'
-        AWS_ECS_COMPATIBILITY = 'FARGATE'
-        AWS_ECS_NETWORK_MODE = 'awsvpc'
-        AWS_ECS_CPU = '256'
-        AWS_ECS_MEMORY = '512'
-        AWS_ECS_CLUSTER = 'ch-dev'
-        AWS_ECS_TASK_DEFINITION_PATH = './ecs/container-definition-update-image.json'
-    }
-
+    
     stages {
-        stage('Build preparations') {
-            steps
-            {
-                script 
-                {
-                    // calculate GIT lastest commit short-hash
-                    gitCommitHash = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
-                    shortCommitHash = gitCommitHash.take(7)
-                    // calculate a sample version tag
-                    VERSION = shortCommitHash
-                    // set the build display name
-                    currentBuild.displayName = "#${BUILD_ID}-${VERSION}"
-                    IMAGE = "$PROJECT:$VERSION"
-                }
+        stage('Clean workspace') 
+        {
+            steps {
+                cleanWs()
             }
         }
+
         
-        stage('Docker build')
-        {
-            steps
-            {
-                script
-                {
-                    // Build the docker image using a Dockerfile
-                    docker.build("$IMAGE")
+        stage('checkout scm'){
+            steps{
+                git branch: params.BRANCH_NAME, changelog: false, credentialsId: '8da90870-5309-4ae0-8a2f-4a9d201bb38e', poll: false, url: 'https://github.com/mkd63/Leo-Electricals-and-Automations.git'
+                script{
+                    GIT_COMMIT_SHORT = sh(script: "printf \$(git rev-parse --short HEAD)",
+                    returnStdout: true )
                 }
             }
         }
-        stage('Docker push')
-        {
-            steps
-            {
-                script
-                {
-                    // login to ECR - for now it seems that that the ECR Jenkins plugin is not performing the login as expected. I hope it will in the future.
-                    sh("eval \$(aws ecr get-login --no-include-email | sed 's|https://||')")
-                    // Push the Docker image to ECR
-                    docker.withRegistry(ECRURL, ECRCRED)
-                    {
-                        docker.image(IMAGE).push()
-                    }
-                }
+        stage('Setting ECR credentials'){
+            steps{
+                sh 'aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 582495273871.dkr.ecr.ap-south-1.amazonaws.com'
+            }
+        }
+        stage('building image and pushing to ecr'){
+            steps{
+                sh """#!/bin/bash
+                    docker build -t test-repo:latest .
+                    docker tag test-repo:latest 582495273871.dkr.ecr.ap-south-1.amazonaws.com/test-repo:latest
+                    docker push 582495273871.dkr.ecr.ap-south-1.amazonaws.com/test-repo:latest
+                    docker tag test-repo:latest 582495273871.dkr.ecr.ap-south-1.amazonaws.com/test-repo:$GIT_COMMIT_SHORT
+                    docker push 582495273871.dkr.ecr.ap-south-1.amazonaws.com/test-repo:$GIT_COMMIT_SHORT
+                """
             }
         }  
-        
-
-        //stage('Deploy in ECS') {}
     }
-
-    post
-    {
-        always
-        {
-            // make sure that the Docker image is removed
-            sh "docker rmi $IMAGE | true"
+    post{
+        always{
+            cleanWs()
+            sh 'docker system prune -af'
         }
     }
+
 }
